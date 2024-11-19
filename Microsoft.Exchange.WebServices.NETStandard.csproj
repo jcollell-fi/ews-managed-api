@@ -13,13 +13,13 @@
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>sherlock1982</Authors>
-    <RepositoryUrl>https://github.com/sherlock1982/ews-managed-api</RepositoryUrl>
+    <Authors>sherlock1982, jcollell-fi</Authors>
+    <RepositoryUrl>https://github.com/jcollell-fi/ews-managed-api</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>ews exchange office365 Microsoft Web API Email Client Library C#</PackageTags>
-    <PackageProjectUrl>https://github.com/sherlock1982/ews-managed-api</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/jcollell-fi/ews-managed-api</PackageProjectUrl>
     <Title>Microsoft.Exchange.WebServices.NETStandard</Title>
-    <Description>The Exchange Web Services (EWS) Managed API provides a managed interface for developing .NET client applications that use EWS. By using the EWS Managed API, you can access almost all the information stored in an Office 365, Exchange Online, or Exchange Server mailbox.</Description>
+    <Description>**CUSTOM** version to add Export/Upload. The Exchange Web Services (EWS) Managed API provides a managed interface for developing .NET client applications that use EWS. By using the EWS Managed API, you can access almost all the information stored in an Office 365, Exchange Online, or Exchange Server mailbox.</Description>
     <PackageReleaseNotes>removed obsolete WebRequests and switched to HttpClient internally
 fixed issue with file attachements downloads
 restored ldap autodiscover functionality
