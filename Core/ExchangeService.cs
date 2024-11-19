@@ -40,6 +40,9 @@ namespace Microsoft.Exchange.WebServices.Data
     using Microsoft.Exchange.WebServices.Data.Groups;
     using System.Threading.Tasks;
     using System.Threading;
+    using Microsoft.Exchange.WebServices.NETStandard.Core.Responses;
+    using Microsoft.Exchange.WebServices.NETStandard.Core.Requests;
+    using Microsoft.Exchange.WebServices.NETStandard.Core.ServiceObjects.Items.Microsoft.Exchange.WebServices.Data;
 
     /// <summary>
     /// Represents a binding to the Exchange Web Services.
@@ -1628,6 +1631,32 @@ namespace Microsoft.Exchange.WebServices.Data
             request.ItemIds.AddRange(itemIds);
             request.IsJunk = isJunk;
             request.MoveItem = moveItem;
+            return request.ExecuteAsync(token);
+        }
+
+        /// <summary>
+        /// Export items from exchange
+        /// </summary>
+        /// <param name="itemIds">The ids of the items to be exported.</param>
+        /// <returns></returns>
+        public Task<ServiceResponseCollection<ExportItemsResponse>> ExportItems(IEnumerable<ItemId> itemIds, CancellationToken token = default(CancellationToken))
+        {
+            ExportItemsRequest request = new ExportItemsRequest(this, ServiceErrorHandling.ReturnErrors);
+            request.ItemIds.AddRange(itemIds);
+            return request.ExecuteAsync(token);
+        }
+
+        /// <summary>
+        /// Upload items to Exchange
+        /// </summary>
+        /// <param name="item">The item to Upload</param>
+        /// <returns>An UploadItemsResponse for the requested UploadItem</returns>
+        public Task<ServiceResponseCollection<UploadItemsResponse>> UploadItem(UploadItem item, CancellationToken token = default(CancellationToken))
+        {
+            UploadItemsRequest request = new UploadItemsRequest(this, ServiceErrorHandling.ReturnErrors);
+
+            request.Items = new UploadItem[] { item };
+
             return request.ExecuteAsync(token);
         }
 
